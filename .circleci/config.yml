@@ -28,7 +28,9 @@ jobs:
          aws-access-key-id: AWS_ACCESS_KEY_ID
          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
          aws-region: AWS_DEFAULT_REGION
-      - run: echo "Run your code here"
+      - run: 
+          name: "test aws cli"
+          command: "aws s3 ls"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
