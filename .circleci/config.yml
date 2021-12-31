@@ -35,3 +35,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - aws-cli-example:
+         requires:
+           - say-hello
