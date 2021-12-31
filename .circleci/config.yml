@@ -43,4 +43,4 @@ workflows:
       - say-hello
       - aws-cli-example:
          requires:
-           - say-helloe
+           - say-hello
