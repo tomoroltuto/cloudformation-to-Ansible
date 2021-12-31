@@ -111,6 +111,7 @@ Resources:
        AvailabilityZone: ap-northeast-1a
        InstanceType: t2.micro
        ImageId: ami-0218d08a1f9dac831
+       keyName: ansible-sample-key
        SubnetId: !Ref PubSub1a
        SecurityGroupIds:
           - !Ref EC2SecurityGroup
