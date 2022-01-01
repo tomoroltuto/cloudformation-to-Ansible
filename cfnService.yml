@@ -96,7 +96,7 @@ Resources:
  ElasticIPAssociate:
       Type: AWS::EC2::EIPAssociation
       Properties: 
-        EIP: 18.180.105.165
+        EIP: 18.180.105.164
         InstanceId: !Ref Instance
       DependsOn: Instance
 
