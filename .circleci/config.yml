@@ -43,7 +43,7 @@ jobs:
       -  ansible-playbook/install:
            version: "2.9.23"
       -  ansible-playbook/playbook:
-           playbook: "playbook.yum"
+           playbook: "playbook.yml"
            inventory: ANSIBLE_INVENTORY
            playbook-options: "-u ec2-user --private-key ~/.ssh/ansible-sample-key -i hosts/inventory"         
            
