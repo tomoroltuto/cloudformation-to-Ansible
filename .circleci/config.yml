@@ -46,10 +46,9 @@ jobs:
       -  ansible-playbook/install:
            version: "2.9.23"
       -  ansible-playbook/playbook:
-           playbook: "playbook.yml"
-           inventory: ANSIBLE_INVENTORY
-           playbook-options: "-u ec2-user --private-key ~/.ssh/ansible-sample-key -i hosts/hosts"         
-           
+          playbook: "playbook.yml"
+          inventory: ANSIBLE_INVENTORY
+          playbook-options: "-u ec2-user --private-key ~/.ssh/id_rsa  -i hosts/inventory"        
            
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
