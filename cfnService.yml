@@ -93,16 +93,12 @@ Resources:
        RouteTableId: !Ref RouteTable
        
 #ElasticIP作成
- ElasticIP:
-    Type: "AWS::EC2::EIP"
-    Properties:
-      Domain: vpc
-
  ElasticIPAssociate:
-    Type: AWS::EC2::EIPAssociation
-    Properties: 
-      AllocationId: !GetAtt ElasticIP.AllocationId
-      InstanceId: !Ref Instance
+      Type: AWS::EC2::EIPAssociation
+      Properties: 
+        EIP: 18.180.105.164
+        InstanceId: !Ref Instance
+      DependsOn: Instance
 
 #EC2構築       
  Instance:      
