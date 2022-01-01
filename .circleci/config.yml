@@ -45,7 +45,7 @@ jobs:
       -  ansible-playbook/playbook:
            playbook: "playbook.yum"
            inventory: ANSIBLE_INVENTORY
-           playbook-options: "-u ec2-user --private-key ~/.ssh/ansible-sample-key"         
+           playbook-options: "-u ec2-user --private-key ~/.ssh/ansible-sample-key hosts/inventory"         
            
            
 # Invoke jobs via workflows
