@@ -36,7 +36,7 @@ jobs:
          name: "wait stack Complete"
          command: "aws cloudformation wait update-create-complete --stack-name cfnService1"
   ansible-example:
-    executor: ansible/default
+    executor: ansible-playbook/default
     steps:
       - checkout
       -  ansible-playbook/install:
