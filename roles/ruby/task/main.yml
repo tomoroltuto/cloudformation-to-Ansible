@@ -1,0 +1,15 @@
+---
+- name: Check rbenv command
+  command: rbenv -v
+ 
+- name: Install ruby
+  command: rbenv install 2.6.3
+  
+- name: Set global ruby version
+  command: rbenv --global 2.6.3
+  
+- name: Execute rbenv rehash
+  command: rbenv rehash
+ 
+- name: Check ruby command
+  command: ruby -v

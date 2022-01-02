@@ -1,0 +1,7 @@
+---
+- name: Install git
+  sudo: yes
+  yum: name=git
+
+- name: Update all packages
+  yum: name=* state=latest

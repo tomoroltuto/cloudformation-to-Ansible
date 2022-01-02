@@ -1,0 +1,10 @@
+---
+- name: setup shell for nodejs
+  sudo: yes
+  shell:: curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+  
+- name: Install nodejs
+  sudo: yes
+  yum: name=nodejs
+
+# tasks file for myrole
