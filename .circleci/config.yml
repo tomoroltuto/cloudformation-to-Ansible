@@ -34,7 +34,6 @@ jobs:
       - run: 
          name: "wait stack Complete"
          command: "aws cloudformation wait stack-update-complete --stack-name cfnService"
-         no_output_timeout: 15m
          
   ansible-example:
     executor: ansible-playbook/default
@@ -49,7 +48,9 @@ jobs:
           playbook: "playbook.yml"
           inventory: ANSIBLE_INVENTORY
           playbook-options: "-u ec2-user --private-key ~/.ssh/id_rsa  -i hosts/inventory"        
-           
+      - run:  
+         command: . ./ourlongscript.sh
+         no_output_timeout: 30m    
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
