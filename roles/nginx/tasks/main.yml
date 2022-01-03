@@ -1,6 +1,5 @@
 ---
 - name: install nginx
-  sudo: yes
   yum: name=nginx 
   
 - name: Check ruby command

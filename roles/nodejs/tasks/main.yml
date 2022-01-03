@@ -1,11 +1,11 @@
+
 ---
-
-- name: Install nodejs package
-  sudo: yes
+- name: Setup nodejs10.x
   shell: curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+  tags:
+    - nodejs
 
-- name: Install nodejs
-  sudo: yes
-  yum: name=nodejs
-
-# tasks file for myrole
+- name: Installing latest version of node.js
+  yum:
+    name: nodejs
+    state: latest
