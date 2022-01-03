@@ -113,7 +113,7 @@ Resources:
           - !Ref EC2SecurityGroup
        Tags:
           - Key: Name
-            Value: ansible-cfn-eC2
+            Value: ansible-cfn-ec2
 #EC2のセキュリティーグループ構築             
  EC2SecurityGroup:
     Type: AWS::EC2::SecurityGroup
