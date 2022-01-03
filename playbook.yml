@@ -1,12 +1,9 @@
 ---
-- hosts: all
+- hosts: web
   become: yes
   become_user: root
+  gather_facts: true 
   roles:
      - yum-update
      - nodejs
      - yarn
-     - rbenv
-     - ruby
-     - gem
-     - nginx
