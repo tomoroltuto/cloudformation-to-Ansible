@@ -1,12 +1,13 @@
 ---
-- hosts: all
+- name: Playbook
+  hosts: all
   become: yes
   become_user: root
   roles:
-    - yum-update
-    - nodejs
-    - yarn
-    - rbenv
-    - ruby
-    - gem
-    - nginx
+     - yum-update
+     - nodejs
+     - yarn
+     - rbenv
+     - ruby
+     - gem
+     - nginx
