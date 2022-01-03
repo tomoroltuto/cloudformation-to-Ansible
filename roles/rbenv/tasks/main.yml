@@ -1,7 +1,7 @@
 ---
 - name: Install rbenv
-  ansible.builtin.git:
-     repo: https://github.com/sstephenson/rbenv.git ~/.rbenv
+  git:
+    repo: https://github.com/sstephenson/rbenv.git ~/.rbenv
    
 - name: rbenv/bin to PATH
   command: echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
@@ -13,8 +13,8 @@
   command: source .bash_profile
   
 - name: Install ruby-build as rbenv plugin
-  ansible.builtin.git:
-      repo: https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+  git:
+    repo: https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
       
 - name: Execute rbenv rehash
   command: rbenv rehash
