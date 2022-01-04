@@ -47,24 +47,8 @@ jobs:
       -  ansible-playbook/playbook:
           playbook: "playbook.yml"
           inventory: ANSIBLE_INVENTORY
-          playbook-options: "-u ec2-user --private-key ~/.ssh/id_rsa  -i hosts/inventory" 
+          playbook-options: "-u ec2-user --private-key ~/.ssh/id_rsa  -i hosts/inventory"         
           
-  serverspec-execute:
-    executor: ruby/default
-    steps:
-      - checkout
-      - add_ssh_keys:  
-          fingerprints:  
-            - "6c:76:a7:a2:bd:53:15:a7:55:81:23:8d:c2:45:fe:e0"  
-      - run:
-          name: "Install serverspec"
-          command: |
-            gem install serverspec
-      - run:
-          name: "Execute serverspec"
-          command: |
-            rspec
-      
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -78,7 +62,3 @@ workflows:
          requires:
            - say-hello
            - aws-cli-example
-      - serverspec-execute:
-         requires:
-           - aws-cli-example
-           - ansible-example
