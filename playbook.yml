@@ -7,3 +7,7 @@
      - yum-update
      - nodejs
      - yarn
+     - ruby
+     - rails
+     - unicorn
+     - nginx

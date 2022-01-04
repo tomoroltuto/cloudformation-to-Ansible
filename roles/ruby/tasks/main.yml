@@ -1,25 +1,66 @@
 ---
-- name: install build depends by Ruby
-  yum: name={{ item }} state=present
+
+- name: Install packages
+  yum:
+    name: '{{ item }}'
+    state: latest
+    lock_timeout: 180
   with_items:
-    - git-core
-    - gcc
-    - gcc-c++
-    - gdbm-devel
-    - libffi-devel
-    - libselinux-python
-    - libyaml-devel
-    - mysql-devel
-    - ncurses-devel
-    - openssl-devel
-    - sqlite-devel
-    - readline-devel
-    - zlib-devel
-    
- 
-- name: rbenv install 2.6.3
-  command: rbenv install 2.6.3
-
-- name: rbenv global 2.6.3
-  command: rbenv global 2.6.3
-
+         - gcc
+         - gcc-c++
+         - openssl-devel
+         - libyaml-devel
+         - readline-devel
+         - zlib-devel
+         - libffi-devel
+         - mysql
+         - mysql-devel
+         - sqlite-devel
+         - libselinux-python
+- name: Install rbenv
+  git:
+      repo: https://github.com/sstephenson/rbenv.git
+      dest: /usr/local/rbenv
+      
+- name: rbens set
+  template:
+      src: rbenv_system.sh.j2
+      dest: /etc/profile.d/rbenv.sh
+      owner: root
+      group: root
+      mode: 0755
+      
+- name: ruby-build  Install 
+  git:
+      repo: https://github.com/sstephenson/ruby-build.git
+      dest: /usr/local/rbenv/plugins/ruby-build
+     
+- name: deploy group
+  group:
+      name: deploy
+     
+- name: ansible user to deploy group
+  user:
+      name: ansible
+      groups: deploy
+     
+- name: Change owning group in rbenv directory to deploy
+  file:
+      path: /usr/local/rbenv
+      owner: root
+      group: deploy
+      recurse: yes
+      state: directory
+     
+- name: Install ruby
+  shell: bash -lc "rbenv install --skip-existing 2.6.3"
+   
+- name: global set
+  shell: bash -lc "rbenv global 2.6.3"
+   
+- name: Install bundler
+  gem:
+      name: bundler
+      user_install: no
+      executable: /usr/local/rbenv/shims/gem
+      
