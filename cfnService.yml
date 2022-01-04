@@ -93,16 +93,12 @@ Resources:
        RouteTableId: !Ref RouteTable
        
 #ElasticIP作成
- ElasticIP:
-    Type: "AWS::EC2::EIP"
-    Properties:
-      Domain: vpc
-
  ElasticIPAssociate:
-    Type: AWS::EC2::EIPAssociation
-    Properties: 
-      AllocationId: !GetAtt ElasticIP.AllocationId
-      InstanceId: !Ref Instance
+      Type: AWS::EC2::EIPAssociation
+      Properties: 
+        EIP: 35.75.75.64
+        InstanceId: !Ref Instance
+      DependsOn: Instance
 
 #EC2構築       
  Instance:      
@@ -117,12 +113,12 @@ Resources:
           - !Ref EC2SecurityGroup
        Tags:
           - Key: Name
-            Value: ansible-cfn-ec2
+            Value: ansible-cfn-eC2
 #EC2のセキュリティーグループ構築             
  EC2SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: ec2-sg-cf
+      GroupName: ec2-ansible-cf
       GroupDescription: Allow SSH and HTTP access only MyIP
       VpcId: !Ref myVPC
       SecurityGroupIngress:
@@ -136,47 +132,3 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
-#RDSのセキュリティーグループ構築           
- RDSSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupName: rds-sg-cf
-      GroupDescription: SecurityGroup rds-grp
-      VpcId: !Ref myVPC
-      SecurityGroupIngress:
-        # RDS
-        - IpProtocol: tcp
-          FromPort: 3306
-          ToPort: 3306
-          SourceSecurityGroupId: !Ref EC2SecurityGroup
-#RDSのサブネットグループ構築          
- DBSubnetGroup: 
-    Type: "AWS::RDS::DBSubnetGroup"
-    Properties: 
-      DBSubnetGroupName: segawa-db-sbg
-      DBSubnetGroupDescription: segawa-db-sbg
-      SubnetIds: 
-        - !Ref priSub1a
-        - !Ref priSub1c
-#RDS構築       
- RDSInstance:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      Engine: MySQL
-      EngineVersion: "8.0"
-      DBInstanceClass: db.t2.micro
-      AllocatedStorage: 20
-      StorageType: "gp2"
-      DBInstanceIdentifier: "segawa"
-      MasterUsername: "admin"
-      MasterUserPassword: "tomo5525"
-      DBSubnetGroupName: !Ref DBSubnetGroup
-      PubliclyAccessible: "false"
-      AvailabilityZone: ap-northeast-1a
-      VPCSecurityGroups: 
-        - !Ref RDSSecurityGroup
-      CopyTagsToSnapshot: "true"
-      BackupRetentionPeriod: 7
-      Tags:
-         - Key: Name
-           Value: ansible-cfn-rds

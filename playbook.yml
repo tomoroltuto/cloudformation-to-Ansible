@@ -1,8 +1,13 @@
 ---
-- hosts: all
+- hosts: web
   become: yes
   become_user: root
-  vars:
-    module: git
-  tasks:
-    - yum: name={{ module }}
+  gather_facts: true 
+  roles:
+     - yum-update
+     - nodejs
+     - yarn
+     - ruby
+     - rails
+     - unicorn
+     - nginx

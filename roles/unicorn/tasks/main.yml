@@ -1,0 +1,4 @@
+---
+
+- name: gem install unicorn -v 6.0.0
+  shell: bash -lc "gem install unicorn -v 6.0.0"

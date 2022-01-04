@@ -1,10 +1,10 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-
 #orbs
 orbs: 
   aws-cli: circleci/aws-cli@2.0.6
+  ansible-playbook: orbss/ansible-playbook@0.0.5
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -35,6 +35,20 @@ jobs:
          name: "wait stack Complete"
          command: "aws cloudformation wait stack-update-complete --stack-name cfnService"
          
+  ansible-example:
+    executor: ansible-playbook/default
+    steps:
+      - checkout
+      - add_ssh_keys:  
+          fingerprints:  
+            - "6c:76:a7:a2:bd:53:15:a7:55:81:23:8d:c2:45:fe:e0" 
+      -  ansible-playbook/install:
+           version: "2.9.23"
+      -  ansible-playbook/playbook:
+          playbook: "playbook.yml"
+          inventory: ANSIBLE_INVENTORY
+          playbook-options: "-u ec2-user --private-key ~/.ssh/id_rsa  -i hosts/inventory"         
+          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -44,3 +58,7 @@ workflows:
       - aws-cli-example:
          requires:
            - say-hello
+      - ansible-example:
+         requires:
+           - say-hello
+           - aws-cli-example

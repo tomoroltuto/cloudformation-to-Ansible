@@ -1,0 +1,4 @@
+---
+
+- name: gem install rails -v 6.0.3
+  shell: bash -lc "gem install rails -v 6.0.3"
