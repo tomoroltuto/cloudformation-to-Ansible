@@ -10,18 +10,18 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-describe package('rails') do
+describe package('rails -v') do
   it { should be_installed.by('gem').with_version('6.0.3') }
 end
 
 describe file('/usr/local/rbenv') do
-  it { should be_socket }
+  it { should be_file }
 end
 
-describe package('nginx -version') do
+describe package('nginx') do
   it { should be_installed }
 end
 
 describe file('/etc/nginx/nginx.conf') do
-  it { should be_socket }
+  it { should be_file }
 end
