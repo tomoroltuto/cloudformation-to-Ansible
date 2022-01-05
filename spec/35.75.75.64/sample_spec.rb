@@ -1,15 +1,5 @@
 require 'spec_helper'
 
-describe host('target.example.jp') do
-  it { should be_reachable.with( :port => 22 ) }
-  it { should be_reachable.with( :port => 80 ) } 
-end
-  
-describe host('example.jp') do
-  its(:ipv4_address) { should eq '35.75.75.64' }
-end
-
-
 #パッケージがインストールされているか確認する
 describe package('git') do
   it { should be_installed }
@@ -18,4 +8,25 @@ end
 #パッケージがインストールされているか確認する
 describe package('wget') do
   it { should be_installed }
-end   
+end  
+
+describe package('ruby -v') do
+ it { should be_installed }
+end
+
+describe package('rails -v') do
+ it { should be_installed }
+end
+
+describe package('unicorn -v ') do
+ it { should be_installed }
+end
+
+describe package('nginx') do
+ it { should be_installed }
+end
+
+#ポート80ポート解放チェック
+describe port(80) do
+  it { should be_listening }
+end
