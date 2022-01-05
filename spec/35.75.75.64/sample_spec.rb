@@ -14,10 +14,6 @@ describe file('/usr/local/rbenv') do
   it { should be_socket }
 end
 
-describe package('rails -v') do
-  it { should be_installed.by('gem').with_version('6.0.3') }
-end
-
 escribe package('rails bundler') do
   it { should be_installed }
 end  
