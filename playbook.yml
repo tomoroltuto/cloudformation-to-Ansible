@@ -4,12 +4,10 @@
   become_user: root
   gather_facts: true 
   roles:
+     - application
      - yum-update
      - nodejs
      - yarn
      - ruby
      - rails
-     - application
-     - unicorn
      - nginx
-     

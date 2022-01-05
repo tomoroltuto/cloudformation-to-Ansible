@@ -10,18 +10,22 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-describe package('rails -v') do
-  it { should be_installed }
-end    
-
-describe package('nginx') do
-  it { should be_installed }
-end
-
-describe file('/var/run/unicorn.sock') do
+describe file('/usr/local/rbenv') do
   it { should be_socket }
 end
 
-describe port(80) do
-  it { should be_listening }
+describe package('rails -v') do
+  it { should be_installed.by('gem').with_version('6.0.3') }
+end
+
+escribe package('rails bundler') do
+  it { should be_installed }
+end  
+
+describe package('nginx -version') do
+  it { should be_installed }
+end
+
+describe file('/etc/nginx/nginx.conf') do
+  it { should be_socket }
 end
