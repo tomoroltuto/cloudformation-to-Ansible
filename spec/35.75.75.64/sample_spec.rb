@@ -10,11 +10,11 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-describe package('ruby -v') do
+describe package('ruby') do
   it { should be_installed }
 end    
 
-%w{ rails -v }.each do |pkg|
+%w{ rails}.each do |pkg|
   describe package(pkg) do
     it { should be_installed.by('gem') }
   end
