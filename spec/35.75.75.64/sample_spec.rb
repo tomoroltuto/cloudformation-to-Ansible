@@ -17,11 +17,11 @@ end
 end
 
 describe command('ruby -v') do
-  its(:stdout) { should match /ruby 2.6.3/ }
+  its(:stdout) { should match /ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]/ }
 end
 
 describe command('rails -v') do
-  its(:stderr) { should match /Rails 6.0.3/ }
+  its(:stderr) { should match /Rails 6.0.3 bin sh: 1: rails: not found/  }
 end
 
 describe service('nginx') do
