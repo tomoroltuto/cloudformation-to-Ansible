@@ -64,7 +64,7 @@ jobs:
       - run:
           name: "Execute serverspec"
           command: |
-            rake spec：35.75.75.64
+            spec
 
           
 # Invoke jobs via workflows
