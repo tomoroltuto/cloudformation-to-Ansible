@@ -10,18 +10,18 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-describe package('ruby') do
+describe package('rails -v') do
   it { should be_installed }
 end    
 
-%w{ rails}.each do |pkg|
-  describe package(pkg) do
-    it { should be_installed.by('gem') }
-  end
+describe package('nginx') do
+  it { should be_installed }
 end
 
-%w{ rails bundler }.each do |pkg|
-  describe package(pkg) do
-    it { should be_installed.by('gem') }
-  end
+describe file('/var/run/unicorn.sock') do
+  it { should be_socket }
+end
+
+describe port(80) do
+  it { should be_listening }
 end

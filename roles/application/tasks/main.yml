@@ -1,0 +1,5 @@
+---
+- name: application  Install 
+  git:
+      repo: https://github.com/tomoroltuto/association_tutorial1.git
+      dest: /home/ec2-user/association_tutorial1

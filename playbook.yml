@@ -9,6 +9,7 @@
      - yarn
      - ruby
      - rails
+     - application
      - unicorn
      - nginx
      
