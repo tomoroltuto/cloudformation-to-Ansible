@@ -10,11 +10,17 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-%w{ git gcc-c++ make patch curl libcurl-devel libffi-devel libyaml-devel libicu-devel libxml2-devel libxslt-devel nginx mysql-community-client }.each do |pkg|
+%w{ ruby -v }.each do |pkg|
   describe package(pkg) do
     it { should be_installed }
   end
 end   
+
+%w{ rails -v }.each do |pkg|
+  describe package(pkg) do
+    it { should be_installed.by('gem') }
+  end
+end
 
 %w{ rails bundler }.each do |pkg|
   describe package(pkg) do
