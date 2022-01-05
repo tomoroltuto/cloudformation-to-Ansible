@@ -10,23 +10,15 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-describe package('ruby -v') do
- it { should be_installed }
+describe package('ruby') do
+  it { should be_installed.by('rbenv').with_version('2.6.3') }
 end
 
-describe package('rails -v') do
- it { should be_installed }
+
+describe package('rails') do
+  it { should be_installed.by('gem').with_version('6.0.3') }
 end
 
-describe package('unicorn -v ') do
- it { should be_installed }
-end
-
-describe package('nginx') do
- it { should be_installed }
-end
-
-#ポート80ポート解放チェック
-describe port(80) do
-  it { should be_listening }
+describe package('unicorn') do
+  it { should be_installed.by('gem').with_version('6.0.0') }
 end
