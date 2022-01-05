@@ -10,13 +10,13 @@ describe package('wget') do
   it { should be_installed }
 end  
 
+describe package('rails') do
+  it { should be_installed.by('gem').with_version('6.0.3') }
+end
+
 describe file('/usr/local/rbenv') do
   it { should be_socket }
 end
-
-escribe package('rails bundler') do
-  it { should be_installed }
-end  
 
 describe package('nginx -version') do
   it { should be_installed }
