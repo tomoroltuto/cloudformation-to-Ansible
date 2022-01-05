@@ -17,7 +17,7 @@ end
 end
 
 describe command('ruby -v') do
-  its(:stdout) { should match /ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]/ }
+  its(:stdout) { should match /ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [x86_64-linux]/ }
 end
 
 describe command('rails -v') do
