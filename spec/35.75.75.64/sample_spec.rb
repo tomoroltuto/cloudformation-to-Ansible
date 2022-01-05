@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 #パッケージがインストールされているか確認する
-describe package('httpd') do
+describe package('git') do
   it { should be_installed }
 end   
 
 #パッケージがインストールされているか確認する
-describe package('node') do
+describe package('nodejs') do
   it { should be_installed }
 end   
 
@@ -16,6 +16,6 @@ describe package('wget') do
 end   
 
 #パッケージがインストールされているか確認する
-describe package('yarn') do
+describe package('ruby -v2.6.3') do
   it { should be_installed }
 end   
