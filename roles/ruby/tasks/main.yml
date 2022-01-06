@@ -13,8 +13,6 @@
          - readline-devel
          - zlib-devel
          - libffi-devel
-         - mysql
-         - mysql-devel
          - sqlite-devel
          - libselinux-python
 - name: Install rbenv
