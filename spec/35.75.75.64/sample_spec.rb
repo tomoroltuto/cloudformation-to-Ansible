@@ -10,18 +10,18 @@ describe package('wget') do
   it { should be_installed }
 end  
 
-%w{ rails bundler }.each do |pkg|
+%w{ "rails bundler" }.each do |pkg|
   describe package(pkg) do
     it { should be_installed.by('gem') }
   end
 end
 
 describe command('ruby -v') do
-  its(:stdout) { should match /ruby 2.6.3/ }
+  its(:stdout) { should match /"ruby 2.6.3"/ }
 end
 
 describe command('rails -v') do
-  its(:stderr) { should match /Rails 6.0.3/  }
+  its(:stdout) { should match /"Rails 6.0.3"/  }
 end
 
 describe file('/usr/local/rbenv') do
