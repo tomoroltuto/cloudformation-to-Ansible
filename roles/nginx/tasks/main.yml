@@ -20,4 +20,11 @@
 - name: Set auto start nginx
   become: yes
   shell: chkconfig nginx on
-
+  
+- name: Restart nginx
+  become: yes
+  shell: service nginx start
+  
+- name: Restart nginx
+  shell: systemctl start nginx
+  become: yes  
