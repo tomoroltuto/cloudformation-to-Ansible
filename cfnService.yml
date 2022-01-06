@@ -17,7 +17,7 @@ Resources:
       Tags:
         - Key: Name
           Value: ansible-cfn
-#パブリックサブネットを２つ構築
+#パブリックサブネットを1つ構築
  PubSub1a:
     Type: AWS::EC2::Subnet
     Properties:
@@ -27,31 +27,14 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${NameBase}
- PubSub1c:
-    Type: AWS::EC2::Subnet
-    Properties:
-      AvailabilityZone: ap-northeast-1c
-      VpcId: !Ref myVPC
-      CidrBlock: 10.0.1.0/24
-      Tags:
-        - Key: Name
-          Value: !Sub ${NameBase}
-#プライベートサブネットを２つ構築          
+
+#プライベートサブネットを1つ構築          
  priSub1a:
       Type: AWS::EC2::Subnet
       Properties:
         AvailabilityZone: ap-northeast-1a
         VpcId: !Ref myVPC
-        CidrBlock: 10.0.2.0/24
-        Tags:
-          - Key: Name
-            Value: !Sub ${NameBase}
- priSub1c:
-      Type: AWS::EC2::Subnet
-      Properties:
-        AvailabilityZone: ap-northeast-1c
-        VpcId: !Ref myVPC
-        CidrBlock: 10.0.3.0/24
+        CidrBlock: 10.0.1.0/24
         Tags:
           - Key: Name
             Value: !Sub ${NameBase}
@@ -79,11 +62,6 @@ Resources:
       Properties:
         RouteTableId: !Ref RouteTable
         SubnetId: !Ref PubSub1a
- SubneRouteTableAssociation1c:
-      Type: "AWS::EC2::SubnetRouteTableAssociation"
-      Properties:
-       RouteTableId: !Ref RouteTable
-       SubnetId: !Ref PubSub1c
 #ルート構築       
  Route:
       Type: "AWS::EC2::Route"
