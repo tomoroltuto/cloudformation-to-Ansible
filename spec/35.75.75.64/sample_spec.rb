@@ -17,15 +17,11 @@ end
 end
 
 describe command('ruby -v') do
-  its(:stdout) { should match /ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [x86_64-linux]/ }
+  its(:stdout) { should match /ruby 2.6.3/ }
 end
 
 describe command('rails -v') do
-  its(:stderr) { should match /Rails 6.0.3 bin sh: 1: rails: not found/  }
-end
-
-describe service('nginx') do
-  it { should be_installed }
+  its(:stderr) { should match /Rails 6.0.3/  }
 end
 
 describe file('/usr/local/rbenv') do
