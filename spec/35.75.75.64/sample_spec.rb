@@ -7,7 +7,12 @@ end
 
 #Amazon Linuxかどうか判定する
 if os[:family] == 'amazon'
-end  
+  %w{aws-cli s3cmd}.each do |pkg|
+    describe package(pkg) do
+      it { should be_installed }
+    end
+  end
+end 
   
 
 #ポート22をListenしているか確認する
@@ -15,7 +20,7 @@ describe port("22") do
   it { should be_listening }
 end
 
-describe port("80") do
+describe port("3000") do
   it { should be_listening }
 end
 
@@ -32,11 +37,11 @@ end
 end
 
 describe command('ruby -v') do
-  its(:stdout) { should match "ruby 2.6.3" }
+  its(:stdout) { should match '/ruby 2\.6\.3/' }
 end
 
 describe command('rails -v') do
-  its(:stdout) { should match "Rails 6.0.3" }
+  its(:stdout) { should match 'Rails 6\.0\.3/' }
 end
 
 
@@ -46,4 +51,5 @@ end
 
 describe service('nginx') do
   it { should be_enabled }
+  it { should be_running }
 end
