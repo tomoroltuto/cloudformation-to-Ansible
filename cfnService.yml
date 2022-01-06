@@ -91,7 +91,7 @@ Resources:
           - !Ref EC2SecurityGroup
        Tags:
           - Key: Name
-            Value: ansible-cfn-ec2
+            Value: ansible-cfn-eC2
 #EC2のセキュリティーグループ構築             
  EC2SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -100,13 +100,21 @@ Resources:
       GroupDescription: Allow SSH and HTTP access only MyIP
       VpcId: !Ref myVPC
       SecurityGroupIngress:
-        # http
+      #http
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-          CidrIp: 0.0.0.0/0          
-        # ssh
+          CidrIp: 0.0.0.0/0
+      #ssh      
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
+          CidrIp: 0.0.0.0/0
+      #rails      
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
           CidrIp: 0.0.0.0/0
