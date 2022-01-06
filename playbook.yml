@@ -8,6 +8,5 @@
      - nodejs
      - yarn
      - ruby
-     - application     
      - rails
      - nginx
