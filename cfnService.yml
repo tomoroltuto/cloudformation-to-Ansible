@@ -34,7 +34,7 @@ Resources:
       Properties:
         AvailabilityZone: ap-northeast-1a
         VpcId: !Ref myVPC
-        CidrBlock: 10.0.1.0/24
+        CidrBlock: 10.0.2.0/24
         Tags:
           - Key: Name
             Value: !Sub ${NameBase}
