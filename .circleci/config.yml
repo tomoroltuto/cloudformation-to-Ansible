@@ -62,7 +62,11 @@ jobs:
           name: "Install serverspec"
           command: |
             gem install serverspec
-      - run:
+       - run:
+          name: "Install highline"
+          command: |
+            gem install highline
+       - run:
           name: "Execute serverspec"
           command: |
             rspec
