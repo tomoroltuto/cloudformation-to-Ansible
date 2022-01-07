@@ -28,13 +28,31 @@ Resources:
         - Key: Name
           Value: !Sub ${NameBase}
 
-#プライベートサブネットを1つ構築          
+ PubSub1c:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: ap-northeast-1c
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.1.0/24
+      Tags:
+        - Key: Name
+          Value: !Sub ${NameBase}
+#プライベートサブネットを２つ構築          
  priSub1a:
       Type: AWS::EC2::Subnet
       Properties:
         AvailabilityZone: ap-northeast-1a
         VpcId: !Ref myVPC
         CidrBlock: 10.0.2.0/24
+        Tags:
+          - Key: Name
+            Value: !Sub ${NameBase}
+ priSub1c:
+      Type: AWS::EC2::Subnet
+      Properties:
+        AvailabilityZone: ap-northeast-1c
+        VpcId: !Ref myVPC
+        CidrBlock: 10.0.3.0/24
         Tags:
           - Key: Name
             Value: !Sub ${NameBase}
@@ -140,6 +158,7 @@ Resources:
       DBSubnetGroupDescription: ansible-db-sbg
       SubnetIds: 
         - !Ref priSub1a
+        - !Ref priSub1c
 #RDS構築       
  RDSInstance:
     Type: AWS::RDS::DBInstance
