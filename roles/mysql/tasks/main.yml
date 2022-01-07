@@ -21,7 +21,7 @@
         - mysql-community-devel
         
 - name: running and enabled mysqld
-     service:
+  service:
      name: mysqld
      state: started
      enabled: yes
