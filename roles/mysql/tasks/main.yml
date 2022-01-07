@@ -10,11 +10,11 @@
      name: https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
      validate_certs: yes
   
-- name: install yum-utils, mysql-python, mysql-community-server,mysql-community-devel
+- name: install yum-utils mysql-python mysql-community-server mysql-community-devel
   yum:
      state: present
      name: "{{ item }}"
-     with_items:
+  with_items:
         - yum-utils
         - MySQL-python
         - mysql-community-server

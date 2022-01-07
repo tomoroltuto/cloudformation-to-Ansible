@@ -1,0 +1,2 @@
+mysql -u admin -p -h mydb-ansible.c3nwd87igv8d.ap-northeast-1.rds.amazonaws.com
+adminadmin
