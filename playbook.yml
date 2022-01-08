@@ -10,5 +10,4 @@
      - yarn
      - ruby
      - rails
-     - application
      - nginx

@@ -6,9 +6,7 @@
 - name: gem install unicorn -v 6.0.0
   shell: bash -lc "gem install unicorn -v 6.0.0"
   
-- name: Install bundler
-  gem:
-      name: bundler
-      user_install: no
-      executable: /usr/local/rbenv/shims/gem
+- name: bundle install (if app already exists)
+  shell: |
+    /bin/bash -lc "bundle install"
       
