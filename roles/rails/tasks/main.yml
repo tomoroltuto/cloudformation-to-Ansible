@@ -3,21 +3,9 @@
 - name: gem install rails -v 6.0.3
   shell: bash -lc "gem install rails -v 6.0.3"
   
-- name: application  Install 
-  git:
-      repo: https://github.com/tomoroltuto/association_tutorial1.git
-      dest: /home/ec2-user/association_tutorial1
-      
-- name: Install bundler
-  gem:
-      name: bundler
-      user_install: no
-      executable: /usr/local/rbenv/shims/gem
-  
 - name: gem install unicorn -v 6.0.0
   shell: bash -lc "gem install unicorn -v 6.0.0"
-
-
+  
 - name: Install bundler
   gem:
       name: bundler

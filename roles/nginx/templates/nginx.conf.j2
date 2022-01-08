@@ -21,12 +21,30 @@ http {
 
     access_log  /var/log/nginx/access.log  main;
     server_names_hash_bucket_size 128;
-
+    
      sendfile            on;
-    tcp_nopush          on;
-    tcp_nodelay         on;
-    keepalive_timeout   65;
-    types_hash_max_size 4096;
+      tcp_nopush          on;
+      tcp_nodelay         on;
+      keepalive_timeout   65;
+      types_hash_max_size 2048;
+    
+      gzip              on;
+      gzip_http_version 1.0;
+      gzip_types        text/plain
+                        text/xml
+                        text/css
+                        application/xml
+                        application/xhtml+xml
+                        application/rss+xml
+                        application/atom_xml
+                        application/javascript
+                        application/x-javascript
+                        application/x-httpd-php;
+      gzip_disable      "MSIE [1-6]\.";
+      gzip_disable      "Mozilla/4";
+      gzip_comp_level   1;
+      gzip_proxied        any;
+      gzip_vary           on;
 
     include             /etc/nginx/mime.types;
     default_type        application/octet-stream;
@@ -52,7 +70,6 @@ http {
         error_page 500 502 503 504 /50x.html;
         location = /50x.html {
         }
-                                                              1,1          先頭
     }
 
 # Settings for a TLS enabled server.

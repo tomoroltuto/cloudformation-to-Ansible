@@ -19,7 +19,7 @@ host = ENV['TARGET_HOST']
 options = Net::SSH::Config.for(host)
 
 options[:user] = "ec2-user"
-
+options[:sudo_password] = "admin"
 
 set :host,        options[:host_name] || host
 set :ssh_options, options

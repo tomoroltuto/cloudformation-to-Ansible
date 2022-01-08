@@ -1,0 +1,8 @@
+- name: rbens set
+  template:
+      src: db.sh.j2
+      dest: /usr/bin/printenv
+      
+      
+- name: create master.key
+  shell: bash -lc "bundle exec unicorn -c config/unicorn.rb -E production -D"
