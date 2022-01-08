@@ -9,7 +9,6 @@
      - nodejs
      - yarn
      - ruby
-     - application
      - rails
-     - db
+     - application
      - nginx
