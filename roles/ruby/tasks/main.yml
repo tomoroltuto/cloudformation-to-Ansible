@@ -6,6 +6,10 @@
     state: latest
     lock_timeout: 180
   with_items:
+         - nss
+         - nss-util
+         - nspr
+         - curl      
          - gcc
          - gcc-c++
          - openssl-devel
@@ -15,6 +19,7 @@
          - libffi-devel
          - sqlite-devel
          - libselinux-python
+         
 - name: Install rbenv
   git:
       repo: https://github.com/sstephenson/rbenv.git
@@ -55,10 +60,12 @@
    
 - name: global set
   shell: bash -lc "rbenv global 2.6.3"
-   
+  
 - name: Install bundler
   gem:
       name: bundler
       user_install: no
       executable: /usr/local/rbenv/shims/gem
       
+- name: rbenv rehash
+  shell: bash -lc "rbenv rehash"

@@ -3,10 +3,29 @@
 - name: gem install rails -v 6.0.3
   shell: bash -lc "gem install rails -v 6.0.3"
   
+- name: application Install 
+  git:
+      repo: https://github.com/tomoroltuto/rails-for-ansible.git
+      dest: /home/ec2-user/rails-for-ansible
+      
+- name: Install bundler
+  gem:
+      name: bundler
+      user_install: no
+      executable: /usr/local/rbenv/shims/gem
+      
+- name: rbenv rehash
+  shell: bash -lc "rbenv rehash"
+      
+- name: bundle update
+  shell: bash -lc "bundle update"
+  args:
+    chdir: /home/ec2-user/rails-for-ansible
+    
+- name: bundle install
+  shell: bash -lc "bundle install"
+  args:
+    chdir: /home/ec2-user/rails-for-ansible
+
 - name: gem install unicorn -v 6.0.0
   shell: bash -lc "gem install unicorn -v 6.0.0"
-  
-- name: bundle install (if app already exists)
-  shell: |
-    /bin/bash -lc "bundle install"
-      
