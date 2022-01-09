@@ -7,6 +7,7 @@
   git:
       repo: https://github.com/tomoroltuto/rails-for-ansible.git
       dest: /home/ec2-user/rails-for-ansible
+  ignore_errors: yes
       
 - name: Install bundler
   gem:
@@ -26,6 +27,6 @@
   shell: bash -lc "bundle install"
   args:
     chdir: /home/ec2-user/rails-for-ansible
-
+    
 - name: gem install unicorn -v 6.0.0
   shell: bash -lc "gem install unicorn -v 6.0.0"
