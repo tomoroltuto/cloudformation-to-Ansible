@@ -40,25 +40,17 @@ end
 end
 
 
-describe package('ruby') do
-  it { should be_installed.with_version('2.6.3') }
-end
 
 describe command('ruby -v') do
   let(:disable_sudo) { true }
   its(:stdout) { should match /ruby 2\.6\.3p62.+/ }
 end
 
-describe command('ruby -v') do
-  its(:stdout) { should match "/ruby 2\.6\.3/" }
-end
 
-describe package('rails') do
-  it { should be_installed.by('gem').with_version('6.0.3') }
-end
 
 describe command('rails -v') do
-  its(:stdout) { should match /Rails 6\.0\.3.+/ }
+  let(:disable_sudo) { true }
+  its(:stdout) { should match /Rails 6\.0\.3/ }
 end
 
 describe file('/etc/nginx/nginx.conf') do
