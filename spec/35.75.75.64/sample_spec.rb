@@ -46,7 +46,7 @@ end
 
 describe command('ruby -v') do
   let(:disable_sudo) { true }
-  its(:stdout) { should match /ruby 2\.3\.3p62.+/ }
+  its(:stdout) { should match /ruby 2\.6\.3p62.+/ }
 end
 
 describe command('ruby -v') do
