@@ -117,7 +117,8 @@ cloudformation-to-Ansible
       nginx/1.20.2
 ```
 # 注意
-*　cloudformation-to-Ansible/.circleci/config.ymlのaws-cli-exampleでは初回はcreateで実行し更新する場合はupdateで実行します。
+
+* cloudformation-to-Ansible/.circleci/config.ymlのaws-cli-exampleでは初回はcreateで実行し更新する場合はupdateで実行します。
 
 初回時
 ```bash
