@@ -82,7 +82,7 @@ cloudformation-to-Ansible
     $ ansible --version
 　　　　　　　　　　　　ansible 2.9.23
 ```
-# What is installed on EC2
+# installed on EC2
 
 ```bash
     $ mysql --version
