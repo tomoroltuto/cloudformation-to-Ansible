@@ -2,8 +2,6 @@
 cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
 
 # workflow
-1.
-
 1.cloudformationを実行
 
 2.ansibleを実行
@@ -12,6 +10,7 @@ cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
 
 # ディレクトリ構成
 ```bash
+cloudformation-to-Ansible
 ├── ansible.cfg
 ├── cfnService.yml
 ├── hosts
@@ -56,3 +55,20 @@ cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
  ![Untitled Diagram](https://user-images.githubusercontent.com/90845405/148784998-d84d04dc-37d8-4015-8665-a61876d4845e.jpg)
  
  # 特徴
+
+※ AWScloud9上で作成しています。
+※ EC2はElastic IPを割り振っています。
+※ RDSはMySQLを使用しています
+※ インフラ構築からrails環境構築及びserverspecによるテストを一貫で自動で行います。
+※　　railsは本番環境でデプロイできるようになっています。
+
+# Requirement
+
+* cloud9　Configuration
+```bash
+    Environment type = Create a new EC2 instance for environment(direct access)
+    
+    Instance type = t2.micro
+  
+    Platform =  Amazon Linux 2
+
