@@ -58,7 +58,7 @@ end
 #unicorn -vのコマンドでunicorn v6.1.0のバージョンがマッチングしているか確認
 describe command('unicorn -v') do
   let(:disable_sudo) { true }
-  its(:stdout) { should match /unicorn 6\.1\.0/ }
+  its(:stdout) { should match /unicorn v6\.1\.0/ }
 end
 
 #nginx.confのフォルダがあるか確認
