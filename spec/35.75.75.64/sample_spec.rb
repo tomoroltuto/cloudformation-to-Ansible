@@ -45,7 +45,7 @@ describe package('ruby') do
 end
 
 describe command('ruby -v') do
-  its(:stdout) { should match /ruby 2\.6\.3/"" }
+  its(:stdout) { should match "/ruby 2\.6\.3/" }
 end
 
 describe package('rails') do
@@ -53,7 +53,7 @@ describe package('rails') do
 end
 
 describe command('rails -v') do
-  its(:stdout) { should match /Rails 6\.0\.3/"" }
+  its(:stdout) { should match "/Rails 6\.0\.3/" }
 end
 
 describe file('/etc/nginx/nginx.conf') do
