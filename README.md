@@ -2,11 +2,11 @@
 cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
 
 # workflow
-1.cloudformationを実行
+1.　cloudformationを実行
 
-2.ansibleを実行
+2.　ansibleを実行
 
-3.serverspecを実行
+3.　serverspecを実行
 
 # ディレクトリ構成
 ```bash
@@ -81,6 +81,40 @@ cloudformation-to-Ansible
 ```bash
     $ ansible --version
 　　　　　　　　　　　　ansible 2.9.23
+```
+# What is installed on EC2
+
+```bash
+    $ mysql --version
+　　　　　　　　　　　　mysql  Ver 8.0.27
+```
+```bash
+    $ node --version
+      v10.24.1
+```
+```bash
+    $ git --version
+      git version 2.32.0
+```
+```bash
+    $ ruby -v
+      ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]
+```
+```bash
+    $ bundler -v
+      Bundler version 1.17.2
+```
+```bash
+    $ rails -v
+      Rails 6.0.3
+```
+```bash
+    $ unicorn -v
+      unicorn v6.1.0
+```
+```bash
+    $ nginx -v
+      nginx/1.20.2
 ```
 # 注意
 *　cloudformation-to-Ansible/.circleci/config.ymlのaws-cli-exampleでは初回はcreateで実行し更新する場合はupdateで実行します。
