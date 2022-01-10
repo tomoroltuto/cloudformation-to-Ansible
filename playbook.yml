@@ -5,10 +5,9 @@
   gather_facts: true 
   roles:
      - yum-update
+     - mysql
      - nodejs
      - yarn
      - ruby
      - rails
-     - unicorn
      - nginx
-     
