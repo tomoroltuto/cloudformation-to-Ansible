@@ -2,11 +2,13 @@
 cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
 
 # workflow
-1.cloudformation
+1.
 
-2.ansible
+1.cloudformationを実行
 
-3.serverspec
+2.ansibleを実行
+
+3.serverspecを実行
 
 # ディレクトリ構成
 ```bash
@@ -50,3 +52,5 @@ cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
     │   └── sample_spec.rb
     └── spec_helper.rb
  ```
+ # インフラ構成図
+ ![Untitled Diagram drawio](https://user-images.githubusercontent.com/90845405/148756765-2350a481-5db9-4151-86e0-ed55730758e1.png)
