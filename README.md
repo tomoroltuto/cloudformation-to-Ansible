@@ -56,11 +56,11 @@ cloudformation-to-Ansible
  
  # 特徴
 
-※ AWScloud9上で作成しています。
-※ EC2はElastic IPを割り振っています。
-※ RDSはMySQLを使用しています
-※ インフラ構築からrails環境構築及びserverspecによるテストを一貫で自動で行います。
-※　　railsは本番環境でデプロイできるようになっています。
+* AWScloud9上で作成しています。
+* EC2はElastic IPを割り振っています。
+* RDSはMySQLを使用しています
+* インフラ構築からrails環境構築及びserverspecによるテストを一貫で自動で行います。
+*　　railsは本番環境でデプロイできるようになっています。
 
 # Requirement
 
@@ -71,4 +71,14 @@ cloudformation-to-Ansible
     Instance type = t2.micro
   
     Platform =  Amazon Linux 2
+```    
+* aws cli
+```bash
+    $ aws --version
+     　　aws-cli/1.19.112 
+``` 
+* ansible
+```bash
+    $ ansible --version
+　　　　　　　　　　　　ansible 2.9.23
 
