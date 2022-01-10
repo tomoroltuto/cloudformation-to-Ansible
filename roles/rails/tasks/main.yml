@@ -27,6 +27,3 @@
   shell: bash -lc "bundle install"
   args:
     chdir: /home/ec2-user/rails-for-ansible
-    
-- name: gem install unicorn -v 6.0.0
-  shell: bash -lc "gem install unicorn -v 6.0.0"
