@@ -8,7 +8,7 @@ cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
 
 3.serverspec
 
-#　ディレクトリ構成
+# ディレクトリ構成
 ```bash
 ├── ansible.cfg
 ├── cfnService.yml
