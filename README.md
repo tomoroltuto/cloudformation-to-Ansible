@@ -58,9 +58,9 @@ cloudformation-to-Ansible
 
 * AWScloud9上で作成しています。
 * EC2はElastic IPを割り振っています。
-* RDSはMySQLを使用しています
+* RDSはMySQLを使用しています。
 * インフラ構築からrails環境構築及びserverspecによるテストを一貫で自動で行います。
-* railsは本番環境でデプロイできるようになっています。
+* railsは本番環境でデプロイできるように構築しています。
 
 # Requirement
 
@@ -81,4 +81,24 @@ cloudformation-to-Ansible
 ```bash
     $ ansible --version
 　　　　　　　　　　　　ansible 2.9.23
+```
+# 注意
+*　cloudformation-to-Ansible/.circleci/config.ymlでは初回はcreateで実行し更新する場合はupdateで実行します。
+初回時
+```bash
+      - run: 
+         name: "create stack"
+         command: "aws cloudformation create -stack --stack-name cfnService --region ap-northeast-1 --template-body　file://cfnService.yml"
+      - run: 
+         name: "wait stack Complete"
+         command: "aws cloudformation wait stack-create-complete --stack-name cfnService"
+```
+更新時
+```bash
+      - run: 
+         name: "update stack"
+         command: "aws cloudformation update-stack --stack-name cfnService --region ap-northeast-1 --template-body file://cfnService.yml"
+      - run: 
+         name: "wait stack Complete"
+         command: "aws cloudformation wait stack-update-complete --stack-name cfnService"
 ```
