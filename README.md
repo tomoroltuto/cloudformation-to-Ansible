@@ -60,7 +60,7 @@ cloudformation-to-Ansible
 * EC2はElastic IPを割り振っています。
 * RDSはMySQLを使用しています
 * インフラ構築からrails環境構築及びserverspecによるテストを一貫で自動で行います。
-*　　railsは本番環境でデプロイできるようになっています。
+* railsは本番環境でデプロイできるようになっています。
 
 # Requirement
 
@@ -81,4 +81,4 @@ cloudformation-to-Ansible
 ```bash
     $ ansible --version
 　　　　　　　　　　　　ansible 2.9.23
-
+```
