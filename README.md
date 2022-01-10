@@ -62,7 +62,7 @@ cloudformation-to-Ansible
 * インフラ構築からrails環境構築及びserverspecによるテストを一貫で自動で行います。
 * railsは本番環境でデプロイできるように構築しています。
 
-# Requirement
+# 環境
 
 * cloud9　Configuration
 ```bash
