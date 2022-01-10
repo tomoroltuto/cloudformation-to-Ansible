@@ -60,6 +60,7 @@ jobs:
             
       - ruby/install:
           version: "3.0.3"
+          
       - run:
           name: "Install serverspec"
           command: |
