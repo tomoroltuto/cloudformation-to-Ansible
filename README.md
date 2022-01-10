@@ -83,7 +83,7 @@ cloudformation-to-Ansible
 　　　　　　　　　　　　ansible 2.9.23
 ```
 # 注意
-*　cloudformation-to-Ansible/.circleci/config.ymlでは初回はcreateで実行し更新する場合はupdateで実行します。
+*　cloudformation-to-Ansible/.circleci/config.ymlのaws-cli-exampleでは初回はcreateで実行し更新する場合はupdateで実行します。
 
 初回時
 ```bash
