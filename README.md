@@ -53,4 +53,4 @@ cloudformation-to-AnsibleはCircleCIで下記のworkflowを実行します。
     └── spec_helper.rb
  ```
  # インフラ構成図
- ![Untitled Diagram drawio](https://user-images.githubusercontent.com/90845405/148756765-2350a481-5db9-4151-86e0-ed55730758e1.png)
+ ![Untitled Diagram](https://user-images.githubusercontent.com/90845405/148784998-d84d04dc-37d8-4015-8665-a61876d4845e.jpg)
