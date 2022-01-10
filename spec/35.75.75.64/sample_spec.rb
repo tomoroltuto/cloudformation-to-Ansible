@@ -39,10 +39,6 @@ end
   end
 end
 
-describe service('mysql') do
-  it { should be_enabled }
-  it { should be_running }
-end
 
 describe package('ruby') do
   it { should be_installed.with_version('2.6.3') }
