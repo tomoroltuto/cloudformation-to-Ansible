@@ -1,7 +1,7 @@
 
 ---
-- name: Setup nodejs10.x
-  shell: curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+- name: Setup nodejs16.x
+  shell: curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
   tags:
     - nodejs
 

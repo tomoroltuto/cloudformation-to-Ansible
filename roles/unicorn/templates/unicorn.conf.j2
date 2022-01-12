@@ -1,16 +1,16 @@
 upstream unicorn {
-    server  unix:/home/ec2-user/association_tutorial1/unicorn.sock;
+    server  unix:/home/ec2-user/rails-for-ansible/unicorn.sock;
 }
 
 
 server {
     listen       80;
-    server_name  segawa-alb-1261569888.ap-northeast-1.elb.amazonaws.com;
+    server_name  35.75.75.64;
 
     access_log  /var/log/nginx/access.log;
     error_log   /var/log/nginx/error.log;
 
-    root /home/ec2-user/association_tutorial1/public;
+    root /home/ec2-user/rails-for-ansible/public;
 
     client_max_body_size 100m;
     error_page  404              /404.html;
