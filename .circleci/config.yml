@@ -35,7 +35,6 @@ jobs:
       - run: 
          name: "wait stack Complete"
          command: "aws cloudformation wait stack-create-complete --stack-name cfnService"
-         
   ansible-example:
     executor: ansible-playbook/default
     steps:
