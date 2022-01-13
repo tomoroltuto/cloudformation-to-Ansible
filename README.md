@@ -26,8 +26,8 @@ cloudformation-to-Ansible
 │   │   ├── tasks
 │   │   │   └── main.yml
 │   │   └── templates
-│   │       ├── nginx.conf.j2
-│   │       └── unicorn.conf.j2
+│   │       ├── cloudformation-to-Ansible.conf.j2
+│   │       └── nginx.conf.j2
 │   ├── nodejs
 │   │   └── tasks
 │   │       └── main.yml
@@ -51,7 +51,7 @@ cloudformation-to-Ansible
     │   └── sample_spec.rb
     └── spec_helper.rb
  ```
- # インフラ構成図
+ # 構成図
  ![Untitled Diagram](https://user-images.githubusercontent.com/90845405/148784998-d84d04dc-37d8-4015-8665-a61876d4845e.jpg)
  
  # 特徴
@@ -75,22 +75,22 @@ cloudformation-to-Ansible
 * aws cli
 ```bash
     $ aws --version
-     　　aws-cli/1.19.112 
+      aws-cli/1.19.112 
 ``` 
 * ansible
 ```bash
     $ ansible --version
-　　　　　　　　　　　　ansible 2.9.23
+　　　ansible 2.9.23
 ```
 # installed on EC2
 
 ```bash
     $ mysql --version
-　　　　　　　　　　　　mysql  Ver 8.0.27
+　　　mysql  Ver 8.0.27
 ```
 ```bash
     $ node --version
-      v10.24.1
+      v16.13.2
 ```
 ```bash
     $ git --version
