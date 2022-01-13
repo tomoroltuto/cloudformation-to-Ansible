@@ -17,7 +17,7 @@
 - name: Put unicorn.conf
   become: yes
   template:
-    src: roles/nginx/templates/unicorn.conf.j2
+    src: roles/nginx/templates/cloudformation-to-Ansible.conf.j2
     dest: /etc/nginx/conf.d/default.conf
 
 - name: Set auto start nginx
