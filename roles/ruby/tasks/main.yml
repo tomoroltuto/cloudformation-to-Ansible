@@ -6,7 +6,6 @@
     state: latest
     lock_timeout: 180
   with_items:
-         - git
          - nss
          - nss-util
          - nspr
@@ -24,7 +23,7 @@
 - name: Install rbenv
   git:
       repo: https://github.com/sstephenson/rbenv.git
-      dest: /home/ec2-user/.rbenv/bin/rbenv
+      dest: /usr/local/rbenv
       
 - name: rbens set
   template:
@@ -37,7 +36,7 @@
 - name: ruby-build  Install 
   git:
       repo: https://github.com/sstephenson/ruby-build.git
-      dest: /home/ec2-user/.rbenv/plugins/ruby-build
+      dest: /usr/local/rbenv/plugins/ruby-build
      
 - name: deploy group
   group:
@@ -50,7 +49,7 @@
      
 - name: Change owning group in rbenv directory to deploy
   file:
-      path:  /home/ec2-user/.rbenv
+      path: /usr/local/rbenv
       owner: root
       group: deploy
       recurse: yes
@@ -63,8 +62,10 @@
   shell: bash -lc "rbenv global 2.6.3"
   
 - name: Install bundler
-  shell: bash -lc "gem install bundler"
-
-   
+  gem:
+      name: bundler
+      user_install: no
+      executable: /usr/local/rbenv/shims/gem
+      
 - name: rbenv rehash
   shell: bash -lc "rbenv rehash"

@@ -12,7 +12,6 @@
 - name: Install bundler
   shell: bash -lc "gem install bundler"
 
-      
 - name: rbenv rehash
   shell: bash -lc "rbenv rehash"
       
